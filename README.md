@@ -8,3 +8,13 @@ Example cron tab:
 ```
 * * * * * /home/pi/powermon-mqtt.sh [mqtt-server] [mqtt-prefix]
 ```
+
+This can be added to Home Assistant as an MQTT sensor, such as:
+
+```
+- platform: mqtt
+  name: "Powermon CT 0"
+  state_topic: "powermon/ct_0/power"
+  icon: mdi:electron-framework
+  unit_of_measurement: 'W'
+```
