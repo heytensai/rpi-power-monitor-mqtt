@@ -13,6 +13,8 @@ apt-get install influxdb-clients
 apt-get install mosquitto-clients
 ```
 
+## Installation
+
 Example cron tab:
 
 ```
