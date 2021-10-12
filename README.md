@@ -29,4 +29,21 @@ This can be added to Home Assistant as an MQTT sensor, such as:
   state_topic: "powermon/ct_0/power"
   icon: mdi:electron-framework
   unit_of_measurement: 'W'
+
+- platform: mqtt
+  name: "Powermon Power Home"
+  state_topic: "powermon/home_load/power"
+  icon: mdi:electron-framework
+  unit_of_measurement: 'W'
+```
+
+You can also add an integration sensor which will add this power source to the
+Energy Grid.
+
+```
+- platform: integration
+  source: sensor.powermon_power_home
+  name: powermon_energy_spent
+  unit_prefix: k
+  round: 6
 ```
