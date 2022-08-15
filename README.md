@@ -9,8 +9,7 @@ You'll need to install the InfluxDB and Mosquitto clients that the script uses.
 
 
 ```
-apt-get install influxdb-client
-apt-get install mosquitto-clients
+apt-get install influxdb-client mosquitto-clients
 ```
 
 ## Installation
