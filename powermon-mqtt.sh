@@ -4,6 +4,10 @@
 
 HOST="${1}"
 PREFIX="${2}"
+if [ "${PREFIX}" = "" ]
+then
+	PREFIX="powermon"
+fi
 
 # if your MQTT broker requires authentication, or leave blank
 MQTT_UN=""
