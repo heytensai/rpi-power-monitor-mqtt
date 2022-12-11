@@ -12,7 +12,7 @@ MQTT_PW="" #example, for MQQT Mosquitto for HA found Settings>Devices & Services
 for ct in $(seq 1 6) #for v0.1.0, use (seq 0 5)
 do
 	w=$(influx -database power_monitor -execute "select mean(power) from raw_cts where ct = '${ct}' and time > now() - 1m group by power fill(0) limit 1" -format csv |grep ^raw_cts |perl -lpe 's/.*,//; s/(\..).*/$1/; $_=0 if ($_<0);')
-	mosquitto_pub -u "${MQTT_UN}" -P "${MQTT_PW}" -h "${1}" -t "${PREFIX}/ct_${ct}/power" -m "${w}"
+	mosquitto_pub -u "${MQTT_UN}" -P "${MQTT_PW}" -h "${HOST}" -t "${PREFIX}/ct_${ct}/power" -m "${w}"
 done
 
 homeload=$(influx -database power_monitor -execute "select mean(power) from home_load where time > now() - 1m group by power fill(0) limit 1" -format csv |grep ^home_load |perl -lpe 's/.*,//; s/(\..).*/$1/')
