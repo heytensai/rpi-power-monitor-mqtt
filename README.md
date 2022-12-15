@@ -14,11 +14,21 @@ apt-get install influxdb-client mosquitto-clients
 
 ## Installation
 
+### Install The Script
+
+Copy the powermon-mqtt.sh script to /home/pi
+
+### Set Up Cron
+
+Edit the cron tab with the command "crontab -e" and enter the example below, substituting your MQTT server and prefix. If your server uses authentication, edit the script and update the variables.
+
 Example cron tab:
 
 ```
 * * * * * /home/pi/powermon-mqtt.sh [mqtt-server] [mqtt-prefix]
 ```
+
+### Add To Home Assistant
 
 This can be added to Home Assistant as an MQTT sensor, such as:
 
